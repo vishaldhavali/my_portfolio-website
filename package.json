@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build --no-lint",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint --fix",
-    "check": "npm run lint && next build"
+    "check": "npm run lint && npm run build"
   },
   "dependencies": {
     "@cyntler/react-doc-viewer": "^1.17.0",
