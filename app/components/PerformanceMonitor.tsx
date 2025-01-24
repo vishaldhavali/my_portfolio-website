@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 const PerformanceMonitor = () => {
   const [fps, setFps] = useState(0);
 
-  if (process.env.NODE_ENV !== "development") return null;
-
   useEffect(() => {
+    if (process.env.NODE_ENV !== "development") return;
+
     let frame = 0;
     let lastTime = performance.now();
 
@@ -26,6 +26,8 @@ const PerformanceMonitor = () => {
 
     requestAnimationFrame(checkPerformance);
   }, []);
+
+  if (process.env.NODE_ENV !== "development") return null;
 
   return (
     <div className="fixed bottom-0 right-0 bg-black/50 text-white p-2 text-sm">

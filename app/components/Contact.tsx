@@ -89,6 +89,12 @@ const Contact = () => {
     }
 
     try {
+      console.log("Sending email with:", {
+        serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        form: formRef.current,
+      });
+
       const result = await emailjs.sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
@@ -117,7 +123,7 @@ const Contact = () => {
                     Message Sent Successfully!
                   </p>
                   <p className="mt-1 text-sm text-purple-300/80">
-                    I&apos;ll get back to you soon.
+                    Thank you for reaching out. I'll get back to you soon.
                   </p>
                 </div>
               </div>
