@@ -1,0 +1,274 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-dark: 13, 0, 26; /* #0D001A - darker purple */
+  --color-primary: 26, 0, 51; /* #1A0033 - rich purple */
+  --color-secondary: 168, 85, 247; /* #A855F7 */
+  --color-accent: 236, 73, 153; /* #EC4899 */
+  --color-text: 255, 255, 255;
+  --navbar-height-mobile: 64px;
+  --navbar-height-desktop: 80px;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Section styles */
+section {
+  position: relative;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+section#home {
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Adjust section spacing */
+.container {
+  margin-top: 1rem; /* Add small top margin */
+  margin-bottom: 1rem; /* Add small bottom margin */
+}
+
+/* Adjust spacing for desktop view */
+@media (min-width: 769px) {
+  section {
+    padding: 3rem 0; /* Slightly more padding for desktop but not too much */
+  }
+
+  /* Adjust specific section spacing */
+  section#about {
+    padding-bottom: 1rem;
+  }
+
+  section#skills {
+    padding-top: 1rem;
+  }
+
+  section#resume {
+    padding-bottom: 1rem;
+  }
+
+  section#contact {
+    padding-top: 1rem;
+  }
+}
+
+/* Remove the negative margin that might be causing issues */
+section + section {
+  margin-top: 0;
+}
+
+/* Navbar styles */
+.fixed.z-50 {
+  height: var(--navbar-height-mobile);
+  @media (min-width: 769px) {
+    height: var(--navbar-height-desktop);
+  }
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Remove all scroll margin and padding conflicts */
+@media (max-width: 768px) {
+  main {
+    padding-top: var(--navbar-height-mobile);
+  }
+
+  section {
+    scroll-margin-top: var(--navbar-height-mobile);
+  }
+}
+
+@media (min-width: 769px) {
+  main {
+    padding-top: var(--navbar-height-desktop);
+  }
+
+  section {
+    scroll-margin-top: var(--navbar-height-desktop);
+  }
+}
+
+/* Ensure smooth scrolling */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Loading state styles */
+body[style*="overflow: hidden"] {
+  padding-right: var(--scrollbar-width, 0px); /* Prevent layout shift */
+}
+
+/* Ensure loading screen is always on top */
+[data-loading="true"] {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+/* Smooth transitions */
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in-out;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+}
+
+/* Custom scrollbar styles - Only for desktop */
+@media (min-width: 769px) {
+  /* Webkit browsers (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 4px;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-track-piece,
+  ::-webkit-scrollbar-corner {
+    display: none;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      to bottom,
+      rgba(147, 51, 234, 0.3),
+      rgba(168, 85, 247, 0.3)
+    );
+    border-radius: 100vh;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+      to bottom,
+      rgba(147, 51, 234, 0.5),
+      rgba(168, 85, 247, 0.5)
+    );
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(147, 51, 234, 0.3) transparent;
+  }
+}
+
+/* Hide scrollbar for mobile */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  * {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Add performance optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.hardware-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimize animations */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-smooth {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* Reduce animation complexity on mobile */
+@media (max-width: 768px) {
+  .animate-smooth {
+    transition-duration: 200ms;
+  }
+}
+
+/* Add custom scrollbar styles */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.5);
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.8);
+}
+
+/* Prevent body scroll when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Improve scrollbar appearance */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(168, 85, 247, 0.5);
+  border-radius: 3px;
+}
+
+/* Modal styles */
+.modal-open {
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Ensure modal content is always on top */
+.modal-content {
+  isolation: isolate;
+}
+
+/* Improve mobile scrolling */
+@media (max-width: 768px) {
+  .modal-content {
+    -webkit-overflow-scrolling: touch;
+  }
+}
