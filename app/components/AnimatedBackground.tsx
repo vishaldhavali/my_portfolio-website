@@ -1,4 +1,11 @@
+"use client";
+
 import { useState, useEffect } from "react";
+
+interface AnimatedBackgroundProps {
+  variant: string;
+  className?: string;
+}
 
 export const AnimatedBackground = ({
   variant,
@@ -19,6 +26,16 @@ export const AnimatedBackground = ({
 
   const particleCount = isMobile ? 15 : 30;
   const animationDuration = isMobile ? 2 : 3;
+
+  const variants: Record<string, JSX.Element> = {
+    unified: <div></div>,
+    particles: <div></div>,
+    gradient: <div></div>,
+    mesh: <div></div>,
+    circles: <div></div>,
+    waves: <div></div>,
+    grid: <div></div>,
+  };
 
   return (
     <div
