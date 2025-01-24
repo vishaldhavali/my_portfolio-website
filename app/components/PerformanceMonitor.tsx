@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 
 const PerformanceMonitor = () => {
-  if (process.env.NODE_ENV !== "development") return null;
-
   const [fps, setFps] = useState(0);
+
+  if (process.env.NODE_ENV !== "development") return null;
 
   useEffect(() => {
     let frame = 0;

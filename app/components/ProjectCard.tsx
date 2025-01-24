@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import Image from "next/image";
+
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <motion.div
@@ -13,10 +16,11 @@ const ProjectCard = ({ project }: { project: Project }) => {
     >
       {/* Image container with proper mobile sizing */}
       <div className="w-full md:w-1/2 h-48 md:h-auto relative rounded-lg overflow-hidden">
-        <img
+        <Image
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
           loading="lazy"
         />
       </div>

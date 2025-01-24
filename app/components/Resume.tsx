@@ -113,25 +113,16 @@ const Resume = () => {
 
   // Handle keyboard shortcuts
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (isImageOpen) {
-        if (e.key === "Escape") {
-          handleCloseResume();
-        } else if (e.key === "f") {
-          toggleFullScreen();
-        } else if (e.key === "+" && e.ctrlKey) {
-          e.preventDefault();
-          handleZoomIn();
-        } else if (e.key === "-" && e.ctrlKey) {
-          e.preventDefault();
-          handleZoomOut();
-        }
-      }
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.key === "Escape") handleCloseResume();
+      if (e.key === "+" || e.key === "=") handleZoomIn();
+      if (e.key === "-") handleZoomOut();
+      if (e.key === "f") toggleFullScreen();
     };
 
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isImageOpen]);
+    document.addEventListener("keydown", handleKeyPress);
+    return () => document.removeEventListener("keydown", handleKeyPress);
+  }, [handleCloseResume, handleZoomIn, handleZoomOut, toggleFullScreen]);
 
   const toggleFullScreen = () => {
     setIsFullScreen(!isFullScreen);
