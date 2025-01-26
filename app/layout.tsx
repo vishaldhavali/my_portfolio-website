@@ -17,17 +17,9 @@ export const metadata: Metadata = {
     "full stack developer, web development, Python, React, Next.js, portfolio",
   openGraph: {
     title: "Vishal Dhavali - Full Stack Developer",
-    description:
-      "Full Stack Developer Portfolio showcasing web development and machine learning projects",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Vishal Dhavali Portfolio",
-      },
-    ],
-    type: "website",
+    description: "Full Stack Developer Portfolio",
+    url: "https://my-portfolio-nu-nine-92.vercel.app",
+    siteName: "Vishal Dhavali Portfolio",
   },
   twitter: {
     card: "summary_large_image",

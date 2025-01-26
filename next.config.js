@@ -31,10 +31,9 @@ const nextConfig = {
     remotePatterns: [],
   },
   experimental: {
-    optimizeCss: true,
-    optimizePackageImports: ["framer-motion", "@radix-ui/react-icons"],
-    workerThreads: true,
-    cpus: 4,
+    optimizeCss: false,
+    workerThreads: false,
+    cpus: undefined,
   },
   async headers() {
     return [
