@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { TooltipProvider } from "./components/ui/tooltip";
 import { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +31,8 @@ export default function RootLayout({
           {children}
           <Toaster />
         </TooltipProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
