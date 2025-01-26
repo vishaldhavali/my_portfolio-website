@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "ANALYZE=true next build",
+    "build": "next build",
+    "postbuild": "next-sitemap --config next-sitemap.config.js",
     "start": "next start",
     "lint": "next lint --fix",
-    "check": "npm run lint && npm run build",
-    "postbuild": "next-sitemap"
+    "check": "npm run lint && npm run build"
   },
   "dependencies": {
     "@cyntler/react-doc-viewer": "^1.17.0",

@@ -49,6 +49,12 @@ export const metadata: Metadata = {
   headers: {
     "Cache-Control": "public, max-age=31536000, immutable",
   },
+  alternates: {
+    canonical: "/",
+  },
+  verification: {
+    google: "your-google-verification-code",
+  },
 };
 
 export default function RootLayout({

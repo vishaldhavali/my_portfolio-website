@@ -17,12 +17,17 @@ import PageLayout from "./components/layouts/PageLayout";
 import LoadingScreen from "./components/LoadingScreen";
 import dynamic from "next/dynamic";
 
-// Lazy load non-critical components
-const Projects = dynamic(() => import("./components/Projects"));
+// Add dynamic imports with preload hints
+const Projects = dynamic(() => import("./components/Projects"), {
+  loading: () => <div>Loading...</div>,
+  ssr: true,
+});
+
 const Resume = dynamic(() => import("./components/Resume"), {
   loading: () => <div>Loading...</div>,
-  ssr: false, // If component doesn't need server-side rendering
+  ssr: false,
 });
+
 const ParticleBackground = dynamic(
   () => import("./components/ParticleBackground"),
   {
@@ -32,6 +37,8 @@ const ParticleBackground = dynamic(
 const Contact = dynamic(() => import("./components/Contact"), {
   loading: () => <div>Loading...</div>,
 });
+
+export const revalidate = 3600; // Revalidate every hour
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
