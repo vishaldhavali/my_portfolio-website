@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     description: "Full Stack Developer Portfolio",
     images: ["/path-to-og-image.jpg"],
   },
+  metadataBase: new URL("https://my-portfolio-nu-nine-92.vercel.app/"),
 };
 
 export default function RootLayout({
