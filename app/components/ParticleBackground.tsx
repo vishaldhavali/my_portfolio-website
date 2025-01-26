@@ -23,7 +23,7 @@ const ParticleBackground = () => {
     fullScreen: { enable: false },
     particles: {
       number: {
-        value: isMobile ? 30 : 60,
+        value: 50,
         density: {
           enable: true,
           area: 800,
@@ -36,12 +36,8 @@ const ParticleBackground = () => {
         type: ["circle", "triangle"],
       },
       opacity: {
-        value: { min: 0.05, max: 0.3 },
-        animation: {
-          enable: true,
-          speed: 0.8,
-          minimumValue: 0.05,
-        },
+        value: 0.5,
+        random: false,
       },
       size: {
         value: { min: 1, max: 3 },
@@ -64,18 +60,11 @@ const ParticleBackground = () => {
       },
       move: {
         enable: true,
-        speed: isMobile ? 0.8 : 1.2,
+        speed: 1,
         direction: "none",
-        random: true,
+        random: false,
         straight: false,
-        outModes: {
-          default: "bounce",
-        },
-        attract: {
-          enable: true,
-          rotateX: 600,
-          rotateY: 1200,
-        },
+        outModes: "out",
       },
       twinkle: {
         particles: {
@@ -125,7 +114,7 @@ const ParticleBackground = () => {
       color: "transparent",
     },
     detectRetina: true,
-    fpsLimit: 60,
+    fpsLimit: 30,
     smooth: true,
   };
 

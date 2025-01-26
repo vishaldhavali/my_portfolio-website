@@ -41,6 +41,8 @@ const About = () => {
                   height={400}
                   className="object-cover transition duration-300 transform hover:scale-105"
                   priority
+                  quality={75}
+                  loading="eager"
                 />
               </div>
             </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useReportWebVitals } from "next/web-vitals";
 
 const PerformanceMonitor = () => {
   const [fps, setFps] = useState(0);
@@ -35,5 +36,13 @@ const PerformanceMonitor = () => {
     </div>
   );
 };
+
+export function reportWebVitals(metric) {
+  console.log(metric);
+  // Send to analytics
+  if (metric.label === "web-vital") {
+    // Send to your analytics
+  }
+}
 
 export default PerformanceMonitor;

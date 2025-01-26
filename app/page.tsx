@@ -7,17 +7,20 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Education from "./components/Education";
-import Projects from "./components/Projects";
 import Work from "./components/Work";
 import Certifications from "./components/Certifications";
-import Resume from "./components/Resume";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ParallaxBackground from "./components/ParallaxBackground";
 import CustomCursor from "./components/CustomCursor";
 import PageTransition from "./components/PageTransition";
 import PageLayout from "./components/layouts/PageLayout";
 import LoadingScreen from "./components/LoadingScreen";
+import dynamic from "next/dynamic";
+
+// Lazy load non-critical components
+const Projects = dynamic(() => import("./components/Projects"));
+const Contact = dynamic(() => import("./components/Contact"));
+const Resume = dynamic(() => import("./components/Resume"));
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
