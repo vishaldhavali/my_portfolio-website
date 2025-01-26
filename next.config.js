@@ -17,10 +17,16 @@ const nextConfig = {
     };
     return config;
   },
+  compress: true,
+  images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 60,
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+  },
   async headers() {
     return [
       {
-        source: "/:all*(svg|jpg|png)",
+        source: "/:all*(svg|jpg|png|webp|avif)",
         headers: [
           {
             key: "Cache-Control",
@@ -38,11 +44,6 @@ const nextConfig = {
         ],
       },
     ];
-  },
-  images: {
-    formats: ["image/avif", "image/webp"],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    minimumCacheTTL: 60,
   },
 };
 

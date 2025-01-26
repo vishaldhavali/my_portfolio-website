@@ -19,8 +19,19 @@ import dynamic from "next/dynamic";
 
 // Lazy load non-critical components
 const Projects = dynamic(() => import("./components/Projects"));
-const Contact = dynamic(() => import("./components/Contact"));
-const Resume = dynamic(() => import("./components/Resume"));
+const Resume = dynamic(() => import("./components/Resume"), {
+  loading: () => <div>Loading...</div>,
+  ssr: false, // If component doesn't need server-side rendering
+});
+const ParticleBackground = dynamic(
+  () => import("./components/ParticleBackground"),
+  {
+    ssr: false,
+  }
+);
+const Contact = dynamic(() => import("./components/Contact"), {
+  loading: () => <div>Loading...</div>,
+});
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
