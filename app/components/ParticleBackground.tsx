@@ -6,9 +6,11 @@ import { loadFull } from "tsparticles";
 import type { Engine } from "tsparticles-engine";
 
 const ParticleBackground = () => {
+  const [isMounted, setIsMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -16,7 +18,11 @@ const ParticleBackground = () => {
   }, []);
 
   const particlesInit = useCallback(async (engine: Engine) => {
-    await loadFull(engine);
+    try {
+      await loadFull(engine);
+    } catch (error) {
+      console.error("Failed to load particles:", error);
+    }
   }, []);
 
   const particleOptions = {
@@ -117,6 +123,8 @@ const ParticleBackground = () => {
     fpsLimit: 30,
     smooth: true,
   };
+
+  if (!isMounted) return null;
 
   return (
     <Particles

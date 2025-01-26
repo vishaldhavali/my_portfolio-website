@@ -7,6 +7,7 @@ import { FaLinkedin, FaGithub, FaFileAlt } from "react-icons/fa";
 import { Tooltip, TooltipTrigger, TooltipContent } from "./ui/tooltip";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import OptimizedImage from "./Image";
 
 const particlesOptions = {
   particles: {
@@ -212,16 +213,12 @@ const Hero = () => {
         >
           <div className="w-32 h-32 md:w-44 md:h-44 mx-auto mb-4 md:mb-6 rounded-full relative group overflow-hidden">
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 animate-pulse group-hover:from-indigo-500/30 group-hover:via-purple-500/30 group-hover:to-pink-500/30 transition-all duration-300" />
-            <Image
+            <OptimizedImage
               src="/bitmoji.jpeg"
-              alt="Bitmoji Avatar"
-              width={128}
-              height={128}
-              quality={75}
+              alt="Vishal Dhavali Bitmoji"
+              width={176}
+              height={176}
               priority={true}
-              loading="lazy"
-              placeholder="blur"
-              blurDataURL="data:image/jpeg;base64,..."
               className="w-full h-full object-cover rounded-full border-4 border-indigo-500/30 transform group-hover:scale-105 transition-transform duration-300"
             />
           </div>

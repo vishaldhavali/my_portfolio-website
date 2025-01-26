@@ -49,6 +49,12 @@ export const metadata: Metadata = {
   headers: {
     "Cache-Control": "public, max-age=31536000, immutable",
   },
+  alternates: {
+    canonical: "/",
+  },
+  verification: {
+    google: "your-google-verification-code",
+  },
 };
 
 export default function RootLayout({
@@ -58,6 +64,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Preconnect to important third-party domains */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className={inter.className}>
         <TooltipProvider>
           {children}
