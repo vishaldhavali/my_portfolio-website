@@ -46,6 +46,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  headers: {
+    "Cache-Control": "public, max-age=31536000, immutable",
+  },
 };
 
 export default function RootLayout({
