@@ -17,29 +17,14 @@ const nextConfig = {
     };
     return config;
   },
-  compress: true,
-  poweredByHeader: false,
-  images: {
-    formats: ["image/avif", "image/webp"],
-    minimumCacheTTL: 60,
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
-  },
-  experimental: {
-    optimizeCss: true,
-    optimizePackageImports: ["framer-motion", "@radix-ui/react-icons"],
-  },
   async headers() {
     return [
       {
-        source: "/:all*(svg|jpg|png|webp|avif)",
+        source: "/:all*(svg|jpg|png)",
         headers: [
           {
             key: "Cache-Control",
             value: "public, max-age=31536000, immutable",
-          },
-          {
-            key: "Access-Control-Allow-Origin",
-            value: "*",
           },
         ],
       },
@@ -50,25 +35,14 @@ const nextConfig = {
             key: "X-DNS-Prefetch-Control",
             value: "on",
           },
-          {
-            key: "Strict-Transport-Security",
-            value: "max-age=31536000; includeSubDomains",
-          },
-          {
-            key: "X-Frame-Options",
-            value: "SAMEORIGIN",
-          },
-          {
-            key: "X-Content-Type-Options",
-            value: "nosniff",
-          },
-          {
-            key: "Referrer-Policy",
-            value: "strict-origin-when-cross-origin",
-          },
         ],
       },
     ];
+  },
+  images: {
+    formats: ["image/avif", "image/webp"],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    minimumCacheTTL: 60,
   },
 };
 
