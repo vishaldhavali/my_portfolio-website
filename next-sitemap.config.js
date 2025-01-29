@@ -1,12 +1,18 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://my-portfolio-nu-nine-92.vercel.app",
+  siteUrl: "https://vishaldhavali.vercel.app",
   generateRobotsTxt: true,
-  generateIndexSitemap: false,
-  exclude: ["/api/*"],
+  changefreq: "daily",
+  priority: 0.7,
+  sitemapSize: 5000,
+  exclude: ["/404", "/500"],
   robotsTxtOptions: {
-    additionalSitemaps: [
-      "https://my-portfolio-nu-nine-92.vercel.app/sitemap.xml",
+    additionalSitemaps: ["https://vishaldhavali.vercel.app/sitemap.xml"],
+    policies: [
+      {
+        userAgent: "*",
+        allow: "/",
+      },
     ],
   },
 };
