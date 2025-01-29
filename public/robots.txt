@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://my-portfolio-nu-nine-92.vercel.app
+Host: https://vishaldhavali.vercel.app
 
 # Sitemaps
-Sitemap: https://my-portfolio-nu-nine-92.vercel.app/sitemap.xml
+Sitemap: https://vishaldhavali.vercel.app/sitemap.xml

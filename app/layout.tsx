@@ -10,9 +10,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://my-portfolio-nu-nine-92.vercel.app"),
-  title: "Vishal Dhavali - Full Stack Developer Portfolio",
-  description:
-    "Experienced Full Stack Developer specializing in web development, Python, and machine learning. View my projects and skills.",
+  title: "Vishal Dhavali - Portfolio",
+  description: "Full Stack Developer Portfolio of Vishal Dhavali",
   keywords:
     "full stack developer, web development, Python, React, Next.js, portfolio",
   openGraph: {
@@ -46,6 +45,14 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "your-google-verification-code",
+  },
+  icons: {
+    icon: [
+      {
+        url: "/vd-logo.png",
+        href: "/vd-logo.png",
+      },
+    ],
   },
 };
 
