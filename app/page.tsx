@@ -17,10 +17,27 @@ import PageLayout from "./components/layouts/PageLayout";
 import LoadingScreen from "./components/LoadingScreen";
 import dynamic from "next/dynamic";
 
-// Lazy load non-critical components
-const Projects = dynamic(() => import("./components/Projects"));
-const Contact = dynamic(() => import("./components/Contact"));
-const Resume = dynamic(() => import("./components/Resume"));
+// Dynamic imports
+const Projects = dynamic(() => import("./components/Projects"), {
+  loading: () => <div>Loading...</div>,
+  ssr: true,
+});
+
+const Resume = dynamic(() => import("./components/Resume"), {
+  loading: () => <div>Loading...</div>,
+  ssr: false,
+});
+
+const ParticleBackground = dynamic(
+  () => import("./components/ParticleBackground"),
+  {
+    ssr: false,
+  }
+);
+
+const Contact = dynamic(() => import("./components/Contact"), {
+  loading: () => <div>Loading...</div>,
+});
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);

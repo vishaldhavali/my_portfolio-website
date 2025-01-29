@@ -9,13 +9,9 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   webpack: (config) => {
-    config.resolve.alias.canvas = false;
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
+    config.resolve.alias = {
+      ...config.resolve.alias,
       canvas: false,
-      encoding: false,
-      fs: false,
-      path: false,
     };
     return config;
   },
@@ -41,28 +37,29 @@ const nextConfig = {
         source: "/:path*",
         headers: [
           {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-          {
-            key: "X-DNS-Prefetch-Control",
-            value: "on",
-          },
-          {
-            key: "Strict-Transport-Security",
-            value: "max-age=31536000; includeSubDomains",
-          },
-          {
             key: "X-Frame-Options",
             value: "SAMEORIGIN",
           },
           {
-            key: "X-Content-Type-Options",
-            value: "nosniff",
+            key: "Content-Security-Policy",
+            value: "frame-ancestors 'self'; frame-src 'self';",
+          },
+        ],
+      },
+      {
+        source: "/assets/resume/:path*",
+        headers: [
+          {
+            key: "Content-Type",
+            value: "application/pdf",
           },
           {
-            key: "Referrer-Policy",
-            value: "strict-origin-when-cross-origin",
+            key: "Content-Disposition",
+            value: "inline",
+          },
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
           },
         ],
       },

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://my-portfolio-nu-nine-92.vercel.app
+
+# Sitemaps
+Sitemap: https://my-portfolio-nu-nine-92.vercel.app/sitemap.xml
