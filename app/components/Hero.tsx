@@ -292,7 +292,7 @@ const Hero = () => {
             <Tooltip>
               <TooltipTrigger asChild>
                 <motion.a
-                  href="https://github.com/vishaldhavale"
+                  href="https://github.com/vishaldhavali"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-[#021526]/50 p-3 rounded-full hover:bg-purple-600/20 transition-all duration-300 
