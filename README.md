@@ -221,7 +221,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 📞 Contact
 
 - **Email**: [vishaldhavali2209@gmail.com](mailto:vishaldhavali2209@gmail.com)
-- **LinkedIn**: Vishal Dhavali
+- **LinkedIn**: [Vishal Dhavali](www.linkedin.com/in/vishal-dhavali)
 - **GitHub**: [@vishaldhavali](https://github.com/vishaldhavali)
 
 ## 🙏 Acknowledgments
