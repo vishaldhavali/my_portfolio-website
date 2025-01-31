@@ -4,7 +4,7 @@ A modern, interactive portfolio website built with Next.js, featuring particle a
 
 ## 🌐 Live Demo
 
-- **Live Preview**: [https://my-portfolio-nu-nine-92.vercel.app/](https://my-portfolio-nu-nine-92.vercel.app/)
+- **Live Preview**: [https://vishaldhavali.vercel.app/](https://vishaldhavali.vercel.app/)
 - **Status**: [![Vercel Status](https://therealsujitk-vercel-badge.vercel.app/?app=my-portfolio-nu-nine-92)](https://my-portfolio-nu-nine-92.vercel.app/)
 
 ![Portfolio Preview](public/assets/portfolio-preview.png)
