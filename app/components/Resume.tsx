@@ -16,7 +16,7 @@ import { AnimatedBackground } from "./backgrounds/AnimatedBackground";
 
 const Resume = () => {
   const [isPdfOpen, setIsPdfOpen] = useState(false);
-  const pdfUrl = "/assets/resume/Vishal_Dhavali_Resume.pdf";
+  const pdfUrl = "/assets/resume/Vishal_Dhavali_resume_AIO.pdf";
 
   // Handle body scroll lock
   useEffect(() => {
