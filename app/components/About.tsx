@@ -35,7 +35,7 @@ const About = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-500 blur-md"></div>
               <div className="relative w-72 h-72 rounded-full overflow-hidden">
                 <Image
-                  src="/profile.jpg"
+                  src="/profile.png"
                   alt="Profile Picture"
                   width={400}
                   height={400}
