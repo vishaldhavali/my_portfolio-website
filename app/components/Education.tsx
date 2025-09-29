@@ -77,7 +77,7 @@ const Education = () => {
       institution: "Presidency University",
       location: "Bangalore, Karnataka",
       duration: "Sep 2022 – July 2025",
-      grade: "CGPA: 8.21",
+      grade: "CGPA: 8.31",
       description: [
         "Currently pursuing Bachelor's degree in Computer Science",
         "Focusing on software development and web technologies",
