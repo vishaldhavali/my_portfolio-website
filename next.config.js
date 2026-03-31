@@ -18,13 +18,17 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   images: {
-    domains: ["my-portfolio-nu-nine-92.vercel.app"],
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 176, 256],
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
-    remotePatterns: [],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "my-portfolio-nu-nine-92.vercel.app",
+      },
+    ],
   },
   experimental: {
     optimizeCss: false,

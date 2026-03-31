@@ -12,10 +12,10 @@ import OptimizedImage from "./Image";
 const particlesOptions = {
   particles: {
     number: {
-      value: 200,
+      value: 15,
       density: {
         enable: true,
-        value_area: 1000,
+        value_area: 2500,
       },
     },
     color: {
@@ -113,10 +113,10 @@ const getMobileParticleOptions = (): ISourceOptions => ({
   particles: {
     ...particlesOptions.particles,
     number: {
-      value: 100,
+      value: 8,
       density: {
         enable: true,
-        value_area: 800,
+        value_area: 3000,
       },
     },
     size: {
@@ -199,9 +199,7 @@ const Hero = () => {
       </div>
 
       <div className="absolute inset-0 backdrop-blur-[1px]">
-        <ParticleBackground
-          options={isMobile ? getMobileParticleOptions() : particlesOptions}
-        />
+        <ParticleBackground />
       </div>
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center z-10 min-h-[100dvh]">
@@ -242,8 +240,19 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          Aspiring Software Developer | Passionate about Web Development
+          Java Backend Developer | AI Development Enthusiast
         </motion.p>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.45 }}
+          className="mb-6 md:mb-8 px-4 py-2 rounded-full inline-block bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/40 hover:border-purple-500/60 transition-all"
+        >
+          <span className="text-sm md:text-base text-purple-300 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 animate-pulse" />
+            Published Researcher (IJSREM, May 2025)
+          </span>
+        </motion.div>
         <div className="flex flex-col items-center gap-4 md:gap-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -314,7 +323,7 @@ const Hero = () => {
             <Tooltip>
               <TooltipTrigger asChild>
                 <motion.a
-                  href="/assets/resume/Vishal_Dhavali_Resume.pdf"
+                  href="/assets/resume/Vishal_Dhavali_Resume_java_AI.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-[#021526]/50 p-3 rounded-full hover:bg-purple-600/20 transition-all duration-300 

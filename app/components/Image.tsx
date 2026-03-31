@@ -31,7 +31,7 @@ export default function OptimizedImage({
         priority={priority}
         loading={priority ? undefined : "lazy"}
         quality={90}
-        onLoadingComplete={() => setLoading(false)}
+        onLoad={() => setLoading(false)}
         className={`
           duration-700 ease-in-out
           ${

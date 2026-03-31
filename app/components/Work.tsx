@@ -32,19 +32,6 @@ interface WorkExperience {
 const Work = () => {
   const experiences: WorkExperience[] = [
     {
-      title: "Web Application Development Internship",
-      company: "Infynow Software Solutions LLP",
-      location: "Belagavi, India",
-      duration: "Jan 2024 - Present",
-      description: [
-        "Collaborated with developers to deliver project components on time and accurately",
-        "Developed frontend elements using HTML, CSS, and JavaScript",
-        "Created a landing page for the project",
-        "Gained hands-on experience in web application development",
-      ],
-      skills: ["HTML", "CSS", "JavaScript", "Web Development", "Frontend"],
-    },
-    {
       title: "Web Development Intern",
       company: "CodSoft",
       location: "Remote",
@@ -56,6 +43,29 @@ const Work = () => {
         "Participated in code reviews and implemented feedback",
       ],
       skills: ["HTML5", "CSS3", "JavaScript", "React", "REST API"],
+    },
+    {
+      title: "Web Application Developer Intern",
+      company: "Infynow Software Solutions LLP",
+      location: "Belagavi, Karnataka",
+      duration: "Ongoing",
+      description: [
+        "Delivered production-ready front-end UI components and a fully responsive landing page using HTML5, CSS3, and JavaScript",
+        "Coordinated with senior developers across Agile sprint cycles",
+        "Validated REST API endpoints via Postman",
+        "Maintained clean version history using Git and professional code review practices",
+        "Gained hands-on exposure to real-world SDLC workflows",
+      ],
+      skills: [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "REST APIs",
+        "Git",
+        "Postman",
+        "Frontend",
+        "SDLC",
+      ],
     },
   ];
 

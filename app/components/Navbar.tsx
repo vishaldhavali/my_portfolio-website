@@ -37,12 +37,15 @@ const Navbar = () => {
   const menuItems = [
     "Home",
     "About",
+    "Achievements",
     "Skills",
+    "Softskills",
     "Education",
     "Projects",
     "Work",
     "Certifications",
     "Resume",
+    "Hobbies",
     "Contact",
   ];
 

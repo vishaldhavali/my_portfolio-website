@@ -73,9 +73,16 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
         {/* Content */}
         <div className="p-6 space-y-4 flex-1 flex flex-col">
-          <h3 className="text-2xl font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-            {project.title}
-          </h3>
+          <div className="flex items-start justify-between gap-2">
+            <h3 className="text-2xl font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent flex-1">
+              {project.title}
+            </h3>
+            {project.contribution && (
+              <span className="ml-2 px-3 py-1 whitespace-nowrap text-xs font-semibold bg-gradient-to-r from-purple-600/40 to-pink-600/40 text-purple-300 rounded-full border border-purple-500/40">
+                {project.contribution}
+              </span>
+            )}
+          </div>
           <p className="text-gray-300/90">{project.description}</p>
 
           {/* Technologies */}
@@ -118,9 +125,35 @@ const ProjectCard = ({ project }: { project: Project }) => {
 const Projects = () => {
   const projects = [
     {
+      title: "AI-Vakeel – AI-Powered Legal Assistant",
+      description:
+        "B.Tech Capstone Project & Published Research (IJSREM May 2025). Architected and deployed an AI-powered legal assistant using Python, Streamlit, LangChain, and Google Gemini to deliver contextual guidance on Indian Constitutional law, IPC/CrPC sections, and landmark case studies with auto-validated citations. Engineered a FAISS vector database pipeline that performs semantic search across 50+ legal PDF documents, and built a custom SQLite-backed authentication system supporting multiple user sessions with persistent chat history.",
+      technologies: [
+        "Python",
+        "Streamlit",
+        "LangChain",
+        "Google Gemini",
+        "FAISS",
+        "SQLite",
+        "PDF Processing",
+      ],
+      features: [
+        "Semantic search across 50+ legal PDFs",
+        "Multi-user authentication system",
+        "Persistent chat history",
+        "Real-time legal guidance with citations",
+        "Vector database pipeline (FAISS)",
+        "Published in IJSREM (DOI: 10.55041/IJSREM48058)",
+      ],
+      github: "https://github.com/vishaldhavali/AI-Vakeel-AI-Legal-Assistant",
+      demo: "https://ijsrem.com",
+      image: "/Ai_vakeel_thumbnail.png",
+      contribution: "Published Researcher",
+    },
+    {
       title: "AI-Driven Stock Analysis and Prediction Dashboard",
       description:
-        "Developed a comprehensive stock analysis and prediction platform using Python and machine learning. The dashboard provides real-time stock data visualization, technical analysis indicators, and AI-powered price predictions to help investors make informed decisions.",
+        "Developed a comprehensive stock analysis and prediction platform using Python and machine learning. The dashboard provides real-time stock data visualization, technical analysis indicators, and AI-powered price predictions to help investors make informed decisions. Integrated multiple data sources and built an interactive interface with Streamlit for seamless user experience.",
       technologies: [
         "Python",
         "Machine Learning",
@@ -135,31 +168,35 @@ const Projects = () => {
         "Interactive dashboard interface",
         "Historical data analysis",
       ],
-      github: "https://github.com/yourusername/project",
-      demo: "https://your-demo-link.com",
+      github: "https://github.com/vishaldhavali/AI-Driven-Stock-Analysis",
+      demo: "https://ai-stock-predictor.streamlit.app",
       image: "/stockpreimg.png",
     },
     {
-      title: "Currency Detection System Using ML",
+      title: "Currency Recognition System – Indian Currency Detector",
       description:
-        "Developed an advanced machine learning-based system for automated currency detection and counterfeit prevention. The system utilizes computer vision and deep learning techniques to analyze and verify the authenticity of banknotes in real-time.",
+        "Diploma Final Year Project. Designed and deployed a real-time Indian currency note recognition web application using Python, Flask, OpenCV, and TensorFlow, enabling users to upload note images and receive classification results with confidence scores instantly. Engineered a modular 4-stage image preprocessing pipeline (DetectChars, DetectPlates, Preprocess, classification) and integrated a trained deep learning model with a responsive HTML5/CSS3/JavaScript drag-and-drop front-end interface.",
       technologies: [
         "Python",
-        "TensorFlow",
+        "Flask",
         "OpenCV",
+        "TensorFlow",
         "Deep Learning",
-        "Image Processing",
+        "HTML5",
+        "CSS3",
+        "JavaScript",
       ],
       features: [
         "Real-time currency detection",
-        "High-accuracy counterfeit detection",
+        "4-stage image preprocessing pipeline",
+        "Confidence scores for classifications",
+        "Drag-and-drop UI",
         "Multi-currency support",
-        "Automated denomination classification",
-        "Detailed authenticity reporting",
+        "Deep learning model integration",
       ],
-      image: "/crydtct.png",
       github: "https://github.com/vishaldhavali/Currency-Recognition-System-",
       demo: "https://your-currency-demo.com",
+      image: "/crydtct.png",
     },
   ];
 

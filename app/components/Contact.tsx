@@ -28,7 +28,7 @@ const Contact = () => {
   }, []);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -82,7 +82,7 @@ const Contact = () => {
         {
           duration: 5000,
           position: "bottom-right",
-        }
+        },
       );
       setIsSubmitting(false);
       return;
@@ -99,7 +99,7 @@ const Contact = () => {
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         formRef.current!,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
       );
 
       // Reset form
@@ -141,7 +141,7 @@ const Contact = () => {
         {
           duration: 5000,
           position: "bottom-right",
-        }
+        },
       );
     } catch (error) {
       // Error toast
@@ -180,7 +180,7 @@ const Contact = () => {
         {
           duration: 5000,
           position: "bottom-right",
-        }
+        },
       );
     } finally {
       setIsSubmitting(false);
@@ -203,6 +203,25 @@ const Contact = () => {
         >
           Contact
         </motion.h2>
+
+        {/* Opportunity CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-12 p-6 rounded-lg bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-500/30 hover:border-purple-500/50 transition-all text-center max-w-2xl mx-auto"
+        >
+          <p className="text-lg text-gray-300 mb-4">
+            Open to{" "}
+            <span className="font-semibold text-purple-300">
+              Java Backend Developer Opportunities
+            </span>
+          </p>
+          <p className="text-sm text-purple-400/90">
+            📧 Interested in collaborating? Let's discuss how I can contribute
+            to your team!
+          </p>
+        </motion.div>
 
         <div className="flex flex-col md:flex-row gap-8">
           <motion.div

@@ -5,10 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import Achievements from "./components/Achievements";
 import Skills from "./components/Skills";
-import Education from "./components/Education";
-import Work from "./components/Work";
-import Certifications from "./components/Certifications";
+import SoftSkills from "./components/SoftSkills";
 import Footer from "./components/Footer";
 import ParallaxBackground from "./components/ParallaxBackground";
 import CustomCursor from "./components/CustomCursor";
@@ -17,27 +16,50 @@ import PageLayout from "./components/layouts/PageLayout";
 import LoadingScreen from "./components/LoadingScreen";
 import dynamic from "next/dynamic";
 
-// Dynamic imports
+// Dynamic imports for heavy components
 const Projects = dynamic(() => import("./components/Projects"), {
-  loading: () => <div>Loading...</div>,
+  loading: () => <div className="h-96" />,
   ssr: true,
 });
 
 const Resume = dynamic(() => import("./components/Resume"), {
-  loading: () => <div>Loading...</div>,
+  loading: () => <div className="h-96" />,
   ssr: false,
+});
+
+const Education = dynamic(() => import("./components/Education"), {
+  loading: () => <div className="h-96" />,
+  ssr: true,
+});
+
+const Certifications = dynamic(() => import("./components/Certifications"), {
+  loading: () => <div className="h-96" />,
+  ssr: true,
+});
+
+const HobbiesInterests = dynamic(
+  () => import("./components/HobbiesInterests"),
+  {
+    loading: () => <div className="h-96" />,
+    ssr: true,
+  },
+);
+
+const Contact = dynamic(() => import("./components/Contact"), {
+  loading: () => <div className="h-96" />,
+});
+
+const Work = dynamic(() => import("./components/Work"), {
+  loading: () => <div className="h-96" />,
+  ssr: true,
 });
 
 const ParticleBackground = dynamic(
   () => import("./components/ParticleBackground"),
   {
     ssr: false,
-  }
+  },
 );
-
-const Contact = dynamic(() => import("./components/Contact"), {
-  loading: () => <div>Loading...</div>,
-});
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -51,7 +73,7 @@ export default function Home() {
     const timer = setTimeout(() => {
       setIsLoading(false);
       document.body.style.overflow = "unset";
-    }, 2000);
+    }, 800);
 
     return () => {
       clearTimeout(timer);
@@ -78,8 +100,14 @@ export default function Home() {
                 <section id="about">
                   <About />
                 </section>
+                <section id="achievements">
+                  <Achievements />
+                </section>
                 <section id="skills">
                   <Skills />
+                </section>
+                <section id="softskills">
+                  <SoftSkills />
                 </section>
                 <section id="education">
                   <Education />
@@ -95,6 +123,9 @@ export default function Home() {
                 </section>
                 <section id="resume">
                   <Resume />
+                </section>
+                <section id="hobbies">
+                  <HobbiesInterests />
                 </section>
                 <section id="contact">
                   <Contact />

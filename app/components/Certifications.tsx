@@ -9,7 +9,7 @@ const Certifications = () => {
   const certifications = [
     {
       title: "E-PRABESH (Computer Fundamentals)",
-      issuer: "India, Belagavi",
+      issuer: "Belagavi, India",
       date: "2017",
       description:
         "Computer Fundamentals, Windows, MS Office (Word, Excel, PowerPoint) - Scored 87%",
@@ -37,7 +37,7 @@ const Certifications = () => {
       date: "2023",
       description:
         "Fundamentals of machine learning algorithms and their practical applications.",
-      link: "https://simpli-web.app.link/e/lZHLXb8q7Pb",
+      link: "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIxNzUxIiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvdGh1bWJfNDYxMDE2Ml8xNjk4NTIyMzg1LnBuZyIsInVzZXJuYW1lIjoiVmlzaGFsIERoYXZhbGkifQ%3D%3D&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fdashboard%2Fcertificate&%24web_only=true&_branch_match_id=1567523798656387788&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXL87MLcjJ1EssKNDLyczL1k%2FVTzFzcY4oTCkyD0iyrytKTUstKsrMS49PKsovL04tsnXOKMrPTQUACiuHTT8AAAA%3D",
     },
     {
       title: "Getting Started with Machine Learning Algorithms",
@@ -45,14 +45,14 @@ const Certifications = () => {
       date: "2023",
       description:
         "Practical implementation of various machine learning algorithms.",
-      link: "https://simpli-web.app.link/e/d6DCXqdr7Pb",
+      link: "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIxNzUxIiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvdGh1bWJfNDYxMDE2Ml8xNjk4NTIyMzg1LnBuZyIsInVzZXJuYW1lIjoiVmlzaGFsIERoYXZhbGkifQ%3D%3D&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fdashboard%2Fcertificate&%24web_only=true&_branch_match_id=1567523954138359803&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXL87MLcjJ1EssKNDLyczL1k%2FVTzFzcY4oTCkyD0iyrytKTUstKsrMS49PKsovL04tsnXOKMrPTQUACiuHTT8AAAA%3D",
     },
     {
       title: "Introduction to Cloud Computing",
       issuer: "Simplilearn",
       date: "2024",
       description: "Understanding cloud computing fundamentals and services.",
-      link: "https://simpli-web.app.link/e/6n4Ems6q7Pb",
+      link: "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIxNTExIiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvdGh1bWJfNTExNDY3M18xNzE0ODM4ODc5LnBuZyIsInVzZXJuYW1lIjoiVmlzaGFsIERoYXZhbGkifQ%3D%3D&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fdashboard%2Fcertificate&%24web_only=true&_branch_match_id=1567524139947175351&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXL87MLcjJ1EssKNDLyczL1k%2FVN8szcc0tNis0D0iyrytKTUstKsrMS49PKsovL04tsnXOKMrPTQUALN3uNz8AAAA%3D",
     },
   ];
 

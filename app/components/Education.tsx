@@ -26,35 +26,37 @@ const Education = () => {
   const { scrollYProgress: desktopScrollProgress } = useScroll({
     target: desktopTimelineRef,
     offset: ["start end", "end start"], // Changed offset for better tracking
+    layoutEffect: false,
   });
 
   const { scrollYProgress: mobileScrollProgress } = useScroll({
     target: mobileTimelineRef,
     offset: ["start 80%", "end 20%"], // Keep consistent with desktop
+    layoutEffect: false,
   });
 
   // Adjust dot position calculation for smoother movement
   const desktopDotPosition = useTransform(
     desktopScrollProgress,
     [0, 1],
-    ["2%", "98%"] // Adjusted range to keep dot within timeline
+    ["2%", "98%"], // Adjusted range to keep dot within timeline
   );
 
   const mobileDotPosition = useTransform(
     mobileScrollProgress,
     [0, 1],
-    ["0%", "100%"]
+    ["0%", "100%"],
   );
 
   const opacity = useTransform(
     desktopScrollProgress,
     [0, 0.2, 0.8, 1],
-    [0, 1, 1, 0]
+    [0, 1, 1, 0],
   );
   const scale = useTransform(
     desktopScrollProgress,
     [0, 0.2, 0.8, 1],
-    [0.8, 1, 1, 0.8]
+    [0.8, 1, 1, 0.8],
   );
 
   const cardVariants = {
@@ -73,16 +75,19 @@ const Education = () => {
 
   const educationData: Education[] = [
     {
-      degree: "Bachelor of Computer Science and Engineering",
+      degree: "Bachelor of Technology - Computer Science and Engineering",
       institution: "Presidency University",
       location: "Bangalore, Karnataka",
-      duration: "Sep 2022 – July 2025",
+      duration: "Sep 2022 – Jul 2025",
       grade: "CGPA: 8.31",
       description: [
-        "Currently pursuing Bachelor's degree in Computer Science",
-        "Focusing on software development and web technologies",
+        "Computer Science and Engineering degree with focus on software development",
+        "Capstone project: AI-Vakeel (Research published in IJSREM)",
       ],
-      achievements: [],
+      achievements: [
+        "Published Researcher (IJSREM May 2025)",
+        "Research DOI: 10.55041/IJSREM48058",
+      ],
     },
     {
       degree: "Diploma in Computer Science and Engineering",
@@ -91,10 +96,10 @@ const Education = () => {
       duration: "Jun 2019 – Apr 2022",
       grade: "Percentage: 79%",
       description: [
-        "Completed diploma with focus on computer science fundamentals",
-        "Gained practical experience in programming and system design",
+        "Diploma in Computer Science and Engineering with focus on fundamentals",
+        "Final Year Project: Currency Recognition System (Indian Currency Note Detector)",
       ],
-      achievements: [],
+      achievements: ["Currency Recognition System - Real-time ML detection"],
     },
   ];
 

@@ -11,10 +11,10 @@ const About = () => {
   const isInView = useInView(ref, { once: true });
 
   const skills = [
-    { name: "Web Development", percentage: 85 },
-    { name: "Python Programming", percentage: 90 },
-    { name: "Database Management", percentage: 80 },
-    { name: "Problem Solving", percentage: 85 },
+    { name: "Java Backend Development", percentage: 90 },
+    { name: "Spring Boot & REST APIs", percentage: 85 },
+    { name: "Database Design (MySQL)", percentage: 85 },
+    { name: "Problem Solving & OOP", percentage: 88 },
   ];
 
   return (
@@ -66,11 +66,30 @@ const About = () => {
               About Me
             </motion.h2>
             <motion.p className="text-lg mb-4 text-gray-300/90 leading-relaxed">
-              Creative student passionate about web development, excelling in
-              collaborative environments, combining strong coding skills in
-              HTML, CSS, Python, and SQL with effective team leadership and
-              continuous learning.
+              Computer Science Engineering graduate with proven ability to build
+              and ship complete web applications using Java, Spring Boot, REST
+              APIs, and MySQL. Published researcher in IJSREM (May 2025) with a
+              peer-reviewed paper on AI-powered legal query resolution. Hands-on
+              experience implementing user authentication systems, integrating
+              relational databases via JDBC and Hibernate, and collaborating in
+              Agile development environments.
             </motion.p>
+
+            {/* Specialization Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mb-6 p-4 rounded-lg bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-500/30 hover:border-purple-500/50 transition-all"
+            >
+              <h3 className="text-sm font-semibold text-purple-300 mb-2">
+                Java Backend Specialist
+              </h3>
+              <p className="text-sm text-gray-300/80">
+                Spring Boot • REST APIs • JDBC/Hibernate • MySQL • OOP & Design
+                Patterns
+              </p>
+            </motion.div>
 
             {/* Skills Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
