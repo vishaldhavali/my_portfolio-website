@@ -1,0 +1,6 @@
+{
+  "css.lint.unknownAtRules": "ignore",
+  "css.validate": true,
+  "stylelint.enable": true,
+  "editor.formatOnSave": true
+}

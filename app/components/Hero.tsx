@@ -171,19 +171,15 @@ const Hero = () => {
 
   const scrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const section = document.getElementById("contact");
-    if (section) {
-      const isMobile = window.innerWidth < 768;
-      const offset = isMobile ? 64 : 80;
-
-      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-      const targetPosition = sectionTop - offset;
-
-      window.scrollTo({
-        top: targetPosition,
-        behavior: "smooth",
-      });
-    }
+    requestAnimationFrame(() => {
+      const section = document.getElementById("contact");
+      if (section) {
+        section.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    });
   };
 
   return (
