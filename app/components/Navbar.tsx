@@ -7,6 +7,7 @@ import Link from "next/link";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,22 +17,41 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      const isMobile = window.innerWidth < 768;
-      const offset = isMobile ? 64 : 80;
+  // IntersectionObserver for active section tracking
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-50% 0px -50% 0px",
+      threshold: 0,
+    };
 
-      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-      const targetPosition = sectionTop - offset;
-
-      window.scrollTo({
-        top: targetPosition,
-        behavior: "smooth",
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
       });
+    }, observerOptions);
 
-      setIsMobileMenuOpen(false);
-    }
+    const sections = document.querySelectorAll("section[id]");
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
+  const scrollToSection = (sectionId: string) => {
+    setIsMobileMenuOpen(false);
+    requestAnimationFrame(() => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    });
   };
 
   const menuItems = [
@@ -49,6 +69,8 @@ const Navbar = () => {
     "Contact",
   ];
 
+  const isActive = (item: string) => activeSection === item.toLowerCase();
+
   return (
     <motion.nav
       className={`fixed w-full z-50 transition-all duration-300 ${
@@ -61,11 +83,12 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 relative">
-          {/* Logo */}
+        <div className="flex justify-between items-center h-16">
+          {/* Logo - Left */}
           <Link
             href="/"
-            className="text-2xl sm:text-3xl font-bold flex-shrink-0"
+            onClick={() => scrollToSection("home")}
+            className="text-2xl sm:text-3xl font-bold flex-shrink-0 cursor-pointer"
             style={{
               background: "linear-gradient(to right, #A855F7, #EC4899)",
               WebkitBackgroundClip: "text",
@@ -75,14 +98,18 @@ const Navbar = () => {
             VD
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center space-x-4">
+          {/* Desktop Menu - Right (lg+) */}
+          <div className="hidden lg:flex items-center gap-2 flex-wrap justify-end">
             {menuItems.map((item) => (
               <motion.button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="px-3 py-2 text-sm text-purple-400 hover:text-pink-400 transition-colors duration-300"
-                whileHover={{ scale: 1.1 }}
+                className={`px-3 py-2 text-sm rounded-md transition-all duration-300 ${
+                  isActive(item)
+                    ? "text-pink-400 bg-purple-600/20 border-b-2 border-pink-400"
+                    : "text-purple-300 hover:text-pink-400 hover:bg-purple-600/10"
+                }`}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 {item}
@@ -90,14 +117,18 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Tablet Menu */}
-          <div className="hidden md:flex lg:hidden items-center space-x-2">
+          {/* Tablet Menu - Right (md to lg) */}
+          <div className="hidden md:flex lg:hidden items-center gap-1 flex-wrap justify-end">
             {menuItems.map((item) => (
               <motion.button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="px-2 py-1 text-xs text-purple-400 hover:text-pink-400 transition-colors duration-300"
-                whileHover={{ scale: 1.1 }}
+                className={`px-2 py-1 text-xs rounded-md transition-all duration-300 ${
+                  isActive(item)
+                    ? "text-pink-400 bg-purple-600/20 border-b border-pink-400"
+                    : "text-purple-300 hover:text-pink-400 hover:bg-purple-600/10"
+                }`}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 {item}
@@ -105,9 +136,9 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Right */}
           <motion.button
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-purple-400 hover:text-pink-400 hover:bg-purple-800/20 transition-all duration-300"
+            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-purple-300 hover:text-pink-400 hover:bg-purple-800/20 transition-all duration-300"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             whileTap={{ scale: 0.95 }}
             aria-label="Toggle menu"
@@ -131,7 +162,7 @@ const Navbar = () => {
             </svg>
           </motion.button>
 
-          {/* Mobile Menu */}
+          {/* Mobile Menu Dropdown */}
           <AnimatePresence>
             {isMobileMenuOpen && (
               <motion.div
@@ -146,7 +177,11 @@ const Navbar = () => {
                     <motion.button
                       key={item}
                       onClick={() => scrollToSection(item.toLowerCase())}
-                      className="block w-full px-3 py-2 text-base text-purple-400 hover:text-pink-400 hover:bg-purple-800/20 rounded-md transition-colors duration-300"
+                      className={`block w-full px-3 py-2 text-base rounded-md transition-all duration-300 ${
+                        isActive(item)
+                          ? "text-pink-400 bg-purple-600/20 border-l-2 border-pink-400"
+                          : "text-purple-300 hover:text-pink-400 hover:bg-purple-600/10"
+                      }`}
                       whileTap={{ scale: 0.95 }}
                     >
                       {item}

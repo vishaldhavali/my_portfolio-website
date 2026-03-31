@@ -18,18 +18,26 @@ const Resume = () => {
   const [isPdfOpen, setIsPdfOpen] = useState(false);
   const pdfUrl = "/assets/resume/Vishal_Dhavali_Resume_java_AI.pdf";
 
-  // Handle body scroll lock
+  // Handle body scroll lock — saves and restores scroll position
   useEffect(() => {
     if (isPdfOpen) {
-      document.body.classList.add("pdf-open");
+      // Save current scroll position
+      const scrollY = window.scrollY;
       document.body.style.overflow = "hidden";
+      // Store position for cleanup
+      (document.body as any).savedScrollPosition = scrollY;
     } else {
-      document.body.classList.remove("pdf-open");
-      document.body.style.overflow = "unset";
+      // Restore scroll position
+      const scrollY = (document.body as any).savedScrollPosition || 0;
+      document.body.style.overflow = "";
+      delete (document.body as any).savedScrollPosition;
+      // Use requestAnimationFrame to ensure it restores in the next frame
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: scrollY, behavior: "instant" });
+      });
     }
     return () => {
-      document.body.classList.remove("pdf-open");
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
     };
   }, [isPdfOpen]);
 

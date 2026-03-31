@@ -39,7 +39,7 @@ const AnimatedSection = ({
     viewport: { once: true, margin: "-20px" },
     transition: {
       duration: 0.3,
-      ease: "easeOut",
+      ease: [0.25, 0.1, 0.25, 1],
       delay: delay * 0.2,
     },
   });
@@ -50,31 +50,35 @@ const AnimatedSection = ({
         initial: { opacity: 0, y: 50 },
         whileInView: { opacity: 1, y: 0 },
         viewport: { once: true, margin: "-50px" },
-        transition: { duration: 0.5, ease: "easeOut" },
+        transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] },
       },
       slideIn: {
         initial: { opacity: 0, x: -50 },
         whileInView: { opacity: 1, x: 0 },
         viewport: { once: true, margin: "-50px" },
-        transition: { duration: 0.5, ease: "easeOut" },
+        transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] },
       },
       fadeIn: {
         initial: { opacity: 0 },
         whileInView: { opacity: 1 },
         viewport: { once: true, margin: "-50px" },
-        transition: { duration: 0.4 },
+        transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] },
       },
       scaleUp: {
         initial: { opacity: 0, scale: 0.95 },
         whileInView: { opacity: 1, scale: 1 },
         viewport: { once: true, margin: "-50px" },
-        transition: { duration: 0.4 },
+        transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] },
       },
       staggered: {
         initial: { opacity: 0, y: 20 },
         whileInView: { opacity: 1, y: 0 },
         viewport: { once: true, margin: "-50px" },
-        transition: { duration: 0.4, staggerChildren: 0.1 },
+        transition: {
+          duration: 0.4,
+          staggerChildren: 0.05,
+          ease: [0.25, 0.1, 0.25, 1],
+        },
       },
     };
     return animations[animation];
@@ -98,6 +102,7 @@ const AnimatedSection = ({
       className={`${className} overflow-hidden will-change-transform ${
         noSpacing ? "py-0 md:py-0" : ""
       }`}
+      style={{ willChange: "transform, opacity" }}
     >
       {children}
     </motion.section>

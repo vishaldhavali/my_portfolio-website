@@ -2,10 +2,16 @@
 module.exports = {
   siteUrl: "https://vishaldhavali.vercel.app",
   generateRobotsTxt: true,
-  changefreq: "daily",
-  priority: 0.7,
   sitemapSize: 5000,
-  exclude: ["/404", "/500"],
+  exclude: ["/404", "/500", "/api/*"],
+  transform: async (config, path) => {
+    return {
+      loc: path,
+      priority: path === "/" ? 1.0 : 0.7,
+      changefreq: path === "/" ? "weekly" : "monthly",
+      lastmod: new Date().toISOString(),
+    };
+  },
   robotsTxtOptions: {
     additionalSitemaps: ["https://vishaldhavali.vercel.app/sitemap.xml"],
     policies: [

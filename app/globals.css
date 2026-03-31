@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  background-color: #0a0118;
+  min-height: 100%;
+}
+
 :root {
   --color-dark: 13, 0, 26; /* #0D001A - darker purple */
   --color-primary: 26, 0, 51; /* #1A0033 - rich purple */
@@ -15,6 +21,13 @@
 /* Base styles */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--navbar-height-desktop);
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: var(--navbar-height-mobile);
+  }
 }
 
 body {
@@ -28,11 +41,19 @@ section {
   position: relative;
   padding: 2rem 0;
   width: 100%;
+  scroll-margin-top: var(--navbar-height-desktop);
+}
+
+@media (max-width: 768px) {
+  section {
+    scroll-margin-top: var(--navbar-height-mobile);
+  }
 }
 
 section#home {
   padding: 0;
   min-height: 100vh;
+  scroll-margin-top: 0;
 }
 
 /* Adjust section spacing */
@@ -284,6 +305,42 @@ body.modal-open {
   }
 }
 
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+
+/* Global font smoothing for better text rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* GPU acceleration utilities */
+.will-change-transform {
+  will-change: transform;
+}
+
+.transform-gpu {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respect user's motion preferences for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 .rpv-core__viewer {
   height: 100% !important;
   background: transparent !important;
@@ -457,7 +514,9 @@ embed[type="application/pdf"] {
 /* PDF viewer styles */
 .pdf-viewer {
   --shadow-color: rgba(168, 85, 247, 0.1);
-  box-shadow: 0 0 0 1px var(--shadow-color), 0 4px 6px -1px var(--shadow-color),
+  box-shadow:
+    0 0 0 1px var(--shadow-color),
+    0 4px 6px -1px var(--shadow-color),
     0 10px 15px -3px var(--shadow-color);
 }
 
@@ -604,11 +663,13 @@ body.pdf-open {
 @keyframes buttonGlow {
   0%,
   100% {
-    box-shadow: 0 0 5px rgba(168, 85, 247, 0.2),
+    box-shadow:
+      0 0 5px rgba(168, 85, 247, 0.2),
       0 0 20px rgba(168, 85, 247, 0.1);
   }
   50% {
-    box-shadow: 0 0 10px rgba(168, 85, 247, 0.3),
+    box-shadow:
+      0 0 10px rgba(168, 85, 247, 0.3),
       0 0 30px rgba(168, 85, 247, 0.2);
   }
 }

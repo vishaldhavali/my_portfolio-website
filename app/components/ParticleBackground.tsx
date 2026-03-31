@@ -67,10 +67,10 @@ const ParticleBackground = () => {
       move: {
         enable: true,
         speed: 1,
-        direction: "none",
+        direction: "none" as const,
         random: false,
         straight: false,
-        outModes: "out",
+        outModes: "out" as const,
       },
       twinkle: {
         particles: {

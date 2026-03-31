@@ -36,7 +36,7 @@ const About = () => {
               <div className="relative w-72 h-72 rounded-full overflow-hidden">
                 <Image
                   src="/profile.png"
-                  alt="Profile Picture"
+                  alt="Vishal Dhavali - Java Backend Developer from Bengaluru"
                   width={400}
                   height={400}
                   className="object-cover transition duration-300 transform hover:scale-105"

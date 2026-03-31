@@ -72,12 +72,12 @@ export default function Home() {
 
     const timer = setTimeout(() => {
       setIsLoading(false);
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
     }, 800);
 
     return () => {
       clearTimeout(timer);
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
     };
   }, [isLoading]);
 
@@ -93,41 +93,41 @@ export default function Home() {
               <main className="pt-[var(--navbar-height-mobile)] md:pt-[var(--navbar-height-desktop)]">
                 <section
                   id="home"
-                  className="min-h-[calc(100vh-var(--navbar-height-mobile))] md:min-h-[calc(100vh-var(--navbar-height-desktop))]"
+                  className="min-h-[calc(100vh-var(--navbar-height-mobile))] md:min-h-[calc(100vh-var(--navbar-height-desktop))] scroll-mt-20"
                 >
                   <Hero />
                 </section>
-                <section id="about">
+                <section id="about" className="scroll-mt-24">
                   <About />
                 </section>
-                <section id="achievements">
+                <section id="achievements" className="scroll-mt-24">
                   <Achievements />
                 </section>
-                <section id="skills">
+                <section id="skills" className="scroll-mt-24">
                   <Skills />
                 </section>
-                <section id="softskills">
+                <section id="softskills" className="scroll-mt-24">
                   <SoftSkills />
                 </section>
-                <section id="education">
+                <section id="education" className="scroll-mt-24">
                   <Education />
                 </section>
-                <section id="projects">
+                <section id="projects" className="scroll-mt-24">
                   <Projects />
                 </section>
-                <section id="work">
+                <section id="work" className="scroll-mt-24">
                   <Work />
                 </section>
-                <section id="certifications">
+                <section id="certifications" className="scroll-mt-24">
                   <Certifications />
                 </section>
-                <section id="resume">
+                <section id="resume" className="scroll-mt-24">
                   <Resume />
                 </section>
-                <section id="hobbies">
+                <section id="hobbies" className="scroll-mt-24">
                   <HobbiesInterests />
                 </section>
-                <section id="contact">
+                <section id="contact" className="scroll-mt-24">
                   <Contact />
                 </section>
                 <Footer />

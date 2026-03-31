@@ -14,10 +14,10 @@ const PageTransition = ({ children }: PageTransitionProps) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{
-        type: "spring",
-        stiffness: 260,
-        damping: 20,
+        duration: 0.3,
+        ease: "easeOut",
       }}
+      style={{ willChange: "opacity" }}
     >
       {children}
     </motion.div>
