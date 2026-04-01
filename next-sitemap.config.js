@@ -13,7 +13,6 @@ module.exports = {
     };
   },
   robotsTxtOptions: {
-    additionalSitemaps: ["https://vishaldhavali.vercel.app/sitemap.xml"],
     policies: [
       {
         userAgent: "*",
