@@ -12,6 +12,13 @@ module.exports = {
       lastmod: new Date().toISOString(),
     };
   },
+  additionalPaths: async (config) => [
+    { loc: "/#about", priority: 0.8, changefreq: "monthly" },
+    { loc: "/#skills", priority: 0.8, changefreq: "monthly" },
+    { loc: "/#projects", priority: 0.9, changefreq: "weekly" },
+    { loc: "/#work", priority: 0.9, changefreq: "monthly" },
+    { loc: "/#contact", priority: 0.7, changefreq: "monthly" },
+  ],
   robotsTxtOptions: {
     policies: [
       {
