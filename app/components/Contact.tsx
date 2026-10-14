@@ -7,7 +7,6 @@ import {
   FaGithub,
   FaEnvelope,
   FaMapMarkerAlt,
-  FaPhone,
 } from "react-icons/fa";
 import AnimatedSection from "./AnimatedSection";
 import { AnimatedBackground } from "./backgrounds/AnimatedBackground";
@@ -249,15 +248,6 @@ const Contact = () => {
                   >
                     vishaldhavali2209@gmail.com
                   </a>
-                </div>
-              </div>
-              <div className="flex items-center space-x-4">
-                <div className="bg-[#021526] p-3 rounded-full">
-                  <FaPhone className="text-[#6EACDA] text-xl" />
-                </div>
-                <div>
-                  <p className="text-[#E2E2B6]">Phone</p>
-                  <p className="text-white">+91 9164302294</p>
                 </div>
               </div>
             </div>
